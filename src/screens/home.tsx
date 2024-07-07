@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, StyleSheet, View} from 'react-native';
+import {StyleSheet, Text, TouchableHighlight, View} from 'react-native';
 import {NativeStackNavigationProp} from 'react-native-screens/lib/typescript/native-stack/types';
 import {RootStackParamList} from '../../App';
 
@@ -12,16 +12,21 @@ type HomeScreenProps = {
 };
 
 const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
+  const renderButton = (screen: keyof RootStackParamList) => {
+    return (
+      <TouchableHighlight onPress={() => navigation.navigate(screen)}>
+        <View style={styles.button}>
+          <Text style={styles.label}>{`Go to ${screen}`}</Text>
+        </View>
+      </TouchableHighlight>
+    );
+  };
+
   return (
     <View style={styles.container}>
-      <Button
-        title="Go to Weather Screen"
-        onPress={() => navigation.navigate('Weather')}
-      />
-      <Button
-        title="Go to FlatList Screen"
-        onPress={() => navigation.navigate('FlatList')}
-      />
+      {renderButton('Weather')}
+      {renderButton('FlatList')}
+      {renderButton('SectionList')}
     </View>
   );
 };
@@ -31,9 +36,19 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    gap: 8,
+    gap: 20,
     alignItems: 'center',
     justifyContent: 'center',
     minHeight: '100%',
+  },
+  button: {
+    backgroundColor: '#4BAAC8',
+    padding: 12,
+    minWidth: '50%',
+  },
+  label: {
+    textAlign: 'center',
+    fontSize: 18,
+    color: '#FFF',
   },
 });
