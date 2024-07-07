@@ -40,11 +40,13 @@ export type Book = {
 };
 
 const API_STEM = 'https://api.nytimes.com/svc/books/v3/lists';
-const LIST_NAME = 'hardcover-fiction';
+const DEFAULT_LIST_NAME = 'hardcover-fiction';
 
-export const fetchBooks = async (): Promise<Book[]> => {
+export const fetchBooks = async (
+  listName: string = DEFAULT_LIST_NAME,
+): Promise<Book[]> => {
   try {
-    const url = `${API_STEM}/${LIST_NAME}?response-format=json&api-key=${NYTIMES_KEY}`;
+    const url = `${API_STEM}/${listName}?response-format=json&api-key=${NYTIMES_KEY}`;
     const response = await fetch(url);
     const responseJson = await response.json();
     return responseJson.results.books;
