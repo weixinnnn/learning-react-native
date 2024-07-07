@@ -18,6 +18,10 @@ const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
         title="Go to Weather Screen"
         onPress={() => navigation.navigate('Weather')}
       />
+      <Button
+        title="Go to FlatList Screen"
+        onPress={() => navigation.navigate('FlatList')}
+      />
     </View>
   );
 };
