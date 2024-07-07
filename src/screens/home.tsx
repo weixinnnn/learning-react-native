@@ -27,6 +27,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
       {renderButton('Weather')}
       {renderButton('FlatList')}
       {renderButton('SectionList')}
+      {renderButton('Mondrian')}
     </View>
   );
 };
