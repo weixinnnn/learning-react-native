@@ -7,6 +7,7 @@ import FlatListScreen from './src/screens/list/flat-list';
 import SectionListScreen from './src/screens/list/section-list';
 import MondrianScreen from './src/screens/mondrian';
 import PanResponderScreen from './src/screens/pan-responder';
+import SmarterWeatherScreen from './src/screens/smarter-weather';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -15,6 +16,7 @@ export type RootStackParamList = {
   FlatList: undefined;
   SectionList: undefined;
   Mondrian: undefined;
+  SmarterWeather: undefined;
 };
 
 function App(): React.JSX.Element {
@@ -31,6 +33,7 @@ function App(): React.JSX.Element {
         <Stack.Screen name="FlatList" component={FlatListScreen} />
         <Stack.Screen name="SectionList" component={SectionListScreen} />
         <Stack.Screen name="Mondrian" component={MondrianScreen} />
+        <Stack.Screen name="SmarterWeather" component={SmarterWeatherScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
